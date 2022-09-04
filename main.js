@@ -7,7 +7,8 @@ let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
 let temporizador = false;
-let timer = 30;
+let timer = 3;
+let tiempoRegresivo= null;
 
 //apuntando a documento html
 let mostrarMovimientos = document.getElementById('movimientos');
@@ -21,11 +22,25 @@ console.log(numeros);
 
 //funciones
 function contartiempo(){
-    setInterval(()=>{
+    tiempoRegresivo = setInterval(()=>{
         timer--;
         mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`;
+        if(timer == 0 ){
+            clearInterval(tiempoRegresivo);
+            bloquearTarjetas();
+        }
     },1000)
 }
+
+//funcion bloquear tarjeta
+function bloquearTarjetas(){
+    for(let i = 0; i<=15; i++){
+         let tarjetaBloqueada = document.getElementById(i);
+         tarjetaBloqueada.innerHTML = numeros[i];
+         tarjetaBloqueada.disabled = true;
+    }   
+}
+
 
 //funcion destapar
 function destapar(id){
@@ -80,7 +95,7 @@ function destapar(id){
                 tarjeta1.disabled = false;
                 tarjeta2.disabled = false;
                 tarjetasDestapadas = 0
-            },300)
+            },500)
         }
     } 
 
