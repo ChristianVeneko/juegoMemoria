@@ -49,8 +49,17 @@ function destapar(id){
 
             //aumentar aciertos
             aciertos++;
-            mostrarAciertos.innerHTML = `Aciertos ${aciertos}`
+            mostrarAciertos.innerHTML = `Aciertos ${aciertos}`;
+        }else{
+            //mostrar momentaneamente los valores y volver a tapar
+            setTimeout(()=>{
+                tarjeta1.innerHTML = ``;
+                tarjeta2.innerHTML = ``;
+                tarjeta1.disabled = false;
+                tarjeta2.disabled = false;
+                tarjetasDestapadas = 0
+            },200)
         }
-    }
+    } 
 
 }
