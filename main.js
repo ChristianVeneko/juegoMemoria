@@ -16,6 +16,6 @@ function destapar(id){
     if(tarjetasDestapadas == 1){
         // Mostrar el primer numero
         tarjeta1 = document.getElementById(id);
-        tarjeta1.innerHTML = "hola";  
+        tarjeta1.innerHTML = numeros[id];  
     }
 }
