@@ -11,7 +11,7 @@ let aciertos = 0;
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos')
 
-let numeros = [1,1,2,2,3,3,4,4,5,6,6,7,7,8,8];
+let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 
 numeros = numeros.sort(()=>{return Math.random()-0.5});
 console.log(numeros);
@@ -50,6 +50,11 @@ function destapar(id){
             //aumentar aciertos
             aciertos++;
             mostrarAciertos.innerHTML = `Aciertos ${aciertos}`;
+
+            if(aciertos == 8){
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`
+                mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤘😎`
+            }
         }else{
             //mostrar momentaneamente los valores y volver a tapar
             setTimeout(()=>{
@@ -58,7 +63,7 @@ function destapar(id){
                 tarjeta1.disabled = false;
                 tarjeta2.disabled = false;
                 tarjetasDestapadas = 0
-            },200)
+            },300)
         }
     } 
 
