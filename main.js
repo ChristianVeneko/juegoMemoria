@@ -9,6 +9,7 @@ let aciertos = 0;
 let temporizador = false;
 let timer = 3;
 let tiempoRegresivo= null;
+let timerInicial = timer;
 
 //apuntando a documento html
 let mostrarMovimientos = document.getElementById('movimientos');
@@ -84,8 +85,10 @@ function destapar(id){
             mostrarAciertos.innerHTML = `Aciertos ${aciertos}`;
 
             if(aciertos == 8){
-                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`
-                mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤘😎`
+                clearInterval(tiempoRegresivo);
+                mostrarAciertos.innerHTML = `Aciertos: ${aciertos} 😱`;
+                mostrarTiempo.innerHTML = `Fantastico!! 🎉🎊 Solo demoraste ${ timerInicial- timer} segundos`;
+                mostrarMovimientos.innerHTML = `Movimientos: ${movimientos} 🤘😎`;
             }
         }else{
             //mostrar momentaneamente los valores y volver a tapar
