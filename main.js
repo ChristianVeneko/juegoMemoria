@@ -98,7 +98,7 @@ function destapar(id){
                 tarjeta1.disabled = false;
                 tarjeta2.disabled = false;
                 tarjetasDestapadas = 0
-            },500)
+            },600)
         }
     } 
 
