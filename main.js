@@ -6,18 +6,35 @@ let primerResultado = null;
 let segundoResultado = null;
 let movimientos = 0;
 let aciertos = 0;
+let temporizador = false;
+let timer = 30;
 
 //apuntando a documento html
 let mostrarMovimientos = document.getElementById('movimientos');
 let mostrarAciertos = document.getElementById('aciertos')
+let mostrarTiempo =  document.getElementById('t-restante')
 
 let numeros = [1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8];
 
 numeros = numeros.sort(()=>{return Math.random()-0.5});
 console.log(numeros);
 
+//funciones
+function contartiempo(){
+    setInterval(()=>{
+        timer--;
+        mostrarTiempo.innerHTML = `Tiempo: ${timer} segundos`;
+    },1000)
+}
+
 //funcion destapar
 function destapar(id){
+
+    if (temporizador == false){
+        contartiempo();
+        temporizador = true;
+    }
+
     tarjetasDestapadas++;
     console.log(tarjetasDestapadas);
     
